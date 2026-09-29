@@ -264,7 +264,7 @@ public class SettingsActivity extends Activity {
         return box;
     }
 
-    private CheckBox check(String label, final String key, boolean def) {
+    private View check(String label, final String key, boolean def) {
         CheckBox cb = new CheckBox(this);
         cb.setText(label);
         cb.setTextColor(Ui.text(prefs.getInt("theme", Ui.DEFAULT_THEME)));
@@ -272,7 +272,7 @@ public class SettingsActivity extends Activity {
         cb.setChecked(prefs.getBoolean(key, def));
         cb.setOnCheckedChangeListener((CompoundButton b, boolean checked) ->
                 prefs.edit().putBoolean(key, checked).apply());
-        return (CheckBox) wrap(cb);
+        return wrap(cb);
     }
 
     private View button(String label, View.OnClickListener listener) {
